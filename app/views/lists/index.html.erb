@@ -10,13 +10,28 @@
   </thead>
 
   <tbody>
-    <% @lists.each do |list| %>
-      <tr>
-        <td><%= link_to 'Show', list %></td>
-        <td><%= link_to 'Edit', edit_list_path(list) %></td>
-        <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+    <div class="container">
+      
+      <div class="row">
+        <% @lists.each do |list| %>
+        <div class="col-sm-3" style="background-color:yellow; margin:10px;">
+          <p>
+            <%= link_to list.title, list %>
+            <%= link_to 'Editar', edit_list_path(list), :class => "pull-right" %>
+          </p>
+          <p>Cridada em: <%=list.created_at.strftime("%d/%m/%Y")%></p>
+          
+          <ul style="list-style-type: square; padding: 15px;">
+            <% first_three(list).each do |item| %>
+              <li><%= item.text %></li>
+            <% end %>
+          </ul>
+          
+        </div>
+        <% end %>
+      </div>
+      
+    </div>
   </tbody>
 </table>
 
