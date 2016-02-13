@@ -4,13 +4,15 @@
 
 <h3>Cridada em: <%=@list.created_at.strftime("%d/%m/%Y")%></h3>
 
+<%= link_to 'Editar Lista', edit_list_path(@list) %> |
+<%= link_to 'Minhas listas', lists_path %>
+
 <div class="col-sm-8">
     <ul class="list-group">
         <% @list.items.each do |i| %>
-            <li class="list-group-item"><%= i.text %></li>
+            <li class="list-group-item">
+                <%= i.text %>
+            </li>
         <% end %>
     </ul>    
 </div>
-
-<%= link_to 'Editar', edit_list_path(@list) %> |
-<%= link_to 'Minhas listas', lists_path %>
