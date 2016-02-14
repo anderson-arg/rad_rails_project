@@ -1,7 +1,9 @@
-<h1>Editing Item</h1>
-
-<%= form_for(@item, url: list_item_path) do |f| %>
-<%= render 'form', f: f %>
-<% end %>
-
-<%= link_to 'Voltar à lista', list_path(@item.list) %>
+<div>
+    <h1 class="text-center">Editar Item</h1>
+    
+    <%= form_for(@item, url: list_item_path) do |f| %>
+    <%= render 'form', f: f %>
+    <% end %>
+    
+    
+</div>
