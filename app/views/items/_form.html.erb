@@ -1,28 +1,13 @@
-
-
-  <% if @item.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
-
-      <ul>
-      <% @item.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="col-md-5 col-md-offset-3">
-    <div class="row">
-      <div class="form-group">
-        <%= f.label :text, 'Item:'%>
-        <%= f.text_field :text, class: 'form-control' %>
-      </div>
-    </div>
-    
-    <div class="actions pull-right">
-      <%= link_to 'Voltar', list_path(params[:list_id]) %>
-      <%= f.submit "Enviar" %>
+<div class="col-md-5 col-md-offset-3">
+  <div class="row">
+    <div class="form-group">
+      <%= f.label :text, 'Item:'%>
+      <%= f.text_field :text, class: 'form-control' %>
     </div>
   </div>
-
+  
+  <div class="actions pull-right">
+    <%= link_to 'Voltar', list_path(params[:list_id]) %>
+    <%= f.submit "Enviar" %>
+  </div>
+</div>
