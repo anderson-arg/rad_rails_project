@@ -5,7 +5,9 @@ class ListsController < ApplicationController
   # GET /lists
   # GET /lists.json
   def index
-    @lists = List.where("user_id = ?", current_user.id)
+    @lists = List.all
+    # Filter by user:
+    #@lists = List.where("user_id = ?", current_user.id)
   end
 
   # GET /lists/1
