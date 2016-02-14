@@ -1,4 +1,5 @@
 class ListsController < ApplicationController
+  before_action :logged_in_user, only: [:edit, :update, :destroy]
   before_action :set_list, only: [:show, :edit, :update, :destroy]
 
   # GET /lists

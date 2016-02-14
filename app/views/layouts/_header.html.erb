@@ -22,17 +22,12 @@
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                           <ul class="nav navbar-nav navbar-right" id="top-nav">
-                            <li> <%= link_to "Inicial", root_url %> </li>
-                            <li> <%= link_to "Sobre", about_url %> </li>
-                            <li> <%= link_to "Listas", lists_url %> </li>
-                            <li> <%= link_to "Contato", contact_url %> </li>
-                            <li> 
-                              <% if !logged_in? %>
-                                <%= link_to "Login", login_url, :class => "account" %>
-                              <% else %>
-                                <%= link_to "Painel", destroy_url, :class => "account" %>
-                              <% end %>
-                            </li>
+                            <li><a href="#hero-area">Inicial</a></li>
+                            <li><a href="#about-us">about us</a></li>
+                            <li><a href="#blog">Blog</a></li>
+                            <li><a href="#price">menu</a></li>
+                            <li><a href="#subscribe">news</a></li>
+                            <li><a href="#contact-us">contacts</a></li>
                           </ul>
                         </div><!-- /.navbar-collapse -->
                       </div><!-- /.container-fluid -->

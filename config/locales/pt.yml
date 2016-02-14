@@ -1,0 +1,24 @@
+pt:
+  activerecord:
+    attributes:
+      user:
+        name:                   'Nome'
+        password:               'Senha'
+        password_confirmation:  'Confirmação da senha'
+        id_active:              'Ativo'
+        
+    errors:
+      messages:
+        blank: 'não pode ser vazio'
+      models:
+        client:
+          attributes:
+            name:
+              invalid: 'invalido.'
+              blank: 'não pode ser vazio'
+            email:
+              invalid: 'invalido.'
+              blank: 'não pode ser vazio'
+            senha:
+              invalid: 'invalida.'
+              blank: 'não pode ser vazio'

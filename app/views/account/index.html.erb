@@ -1,0 +1,29 @@
+<section id=""><!--form-->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4 col-sm-offset-1">
+        <div class="login-form"><!--login form-->
+          <h2>Login</h2>
+          <%= form_for(:session, url: login_path) do |f| %>
+            <%= f.text_field :email, placeholder: 'Email' %>
+            <%= f.password_field :password, placeholder: 'Senha' %>
+
+            <%= f.submit "Login", class: 'btn btn-primary' %>
+          <% end %>
+        </div><!--/login form-->
+      </div>
+      <div class="col-sm-1">
+        <h2 class="or">OU</h2>
+      </div>
+      <div class="col-sm-4">
+        <div class="signup-form"><!--sign up form-->
+          <h2>Cadastro</h2>
+          <%= form_for(@user) do |f| %>
+            <%= render 'users/form', f: f %>
+            <%= f.submit "Cadastrar", class: "btn btn-primary" %>
+          <%end%>
+        </div><!--/sign up form-->
+      </div>
+    </div>
+  </div>
+</section><!--/form-->
