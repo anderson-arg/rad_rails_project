@@ -5,22 +5,26 @@
         <div class="login-form"><!--login form-->
           <h2>Login</h2>
           <%= form_for(:session, url: login_path) do |f| %>
-            <%= f.text_field :email, placeholder: 'Email' %>
-            <%= f.password_field :password, placeholder: 'Senha' %>
+            <div class="form-group">
+              <%= f.text_field :email, placeholder: 'Email', class: 'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= f.password_field :password, placeholder: 'Senha', class: 'form-control' %>
+            </div>
 
-            <%= f.submit "Login", class: 'btn btn-primary' %>
+            <%= f.submit "Login", class: 'btn btn-default' %>
           <% end %>
         </div><!--/login form-->
       </div>
-      <div class="col-sm-1">
-        <h2 class="or">OU</h2>
+      <div class="col-sm-1" style="text-align:center">
+        <div class="or"> </div>
       </div>
       <div class="col-sm-4">
         <div class="signup-form"><!--sign up form-->
           <h2>Cadastro</h2>
           <%= form_for(@user) do |f| %>
             <%= render 'users/form', f: f %>
-            <%= f.submit "Cadastrar", class: "btn btn-primary" %>
+            <%= f.submit "Cadastrar", class: "btn btn-default" %>
           <%end%>
         </div><!--/sign up form-->
       </div>

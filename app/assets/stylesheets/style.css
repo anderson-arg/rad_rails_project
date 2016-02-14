@@ -1,5 +1,19 @@
+.body{
+    margin-top:120px;
+    background:#fff;
+    padding:20px;
+}
+
 .account{
     color:red!important;
 }
 
+.or{
+    height:100%;
+    border-right:1px solid red;
+    display:block;
+}
+
 li.gravatar{margin-top:-10px;}
+
+#navigation{position: fixed; top: 75px;}

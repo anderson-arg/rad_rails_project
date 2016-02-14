@@ -11,10 +11,6 @@ $(document).ready(function(){
     slideSpeed : 800,
  });
 
-	$("#navigation").sticky({
-		topSpacing : 75,
-	});
-
 //Initiat WOW JS
     new WOW().init();
 
