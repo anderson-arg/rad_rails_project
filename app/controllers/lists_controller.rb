@@ -28,29 +28,25 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_params)
     @list.user = current_user
-
-    respond_to do |format|
-      if @list.save
-        format.html { redirect_to @list, notice: 'List was successfully created.' }
-        format.json { render :show, status: :created, location: @list }
-      else
-        format.html { render :new }
-        format.json { render json: @list.errors, status: :unprocessable_entity }
-      end
+    
+    if @list.save
+      flash[:success] = 'Lista criada com sucesso!'
+      redirect_to @list
+    else
+      flash[:danger] = @list.errors.full_messages.to_sentence
+      redirect_to new_list_path(@list)
     end
   end
 
   # PATCH/PUT /lists/1
   # PATCH/PUT /lists/1.json
   def update
-    respond_to do |format|
-      if @list.update(list_params)
-        format.html { redirect_to @list, notice: 'List was successfully updated.' }
-        format.json { render :show, status: :ok, location: @list }
-      else
-        format.html { render :edit }
-        format.json { render json: @list.errors, status: :unprocessable_entity }
-      end
+    if @list.update(list_params)
+      flash[:success] = 'Lista atualizada com sucesso!'
+      redirect_to @list
+    else
+      flash[:danger] = @list.errors.full_messages.to_sentence
+      redirect_to edit_list_path(@list)
     end
   end
 
@@ -58,10 +54,8 @@ class ListsController < ApplicationController
   # DELETE /lists/1.json
   def destroy
     @list.destroy
-    respond_to do |format|
-      format.html { redirect_to lists_url, notice: 'List was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    flash[:success] = 'Lista excluida com sucesso'
+    redirect_to lists_url
   end
 
   private

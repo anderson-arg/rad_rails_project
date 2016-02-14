@@ -28,14 +28,12 @@ class ItemsController < ApplicationController
     list = List.find(params[:list_id])
     @item = list.items.new(item_params)
 
-    respond_to do |format|
-      if @item.save
-        format.html { redirect_to list, notice: 'Item cridado com sucesso!' }
-        format.json { render :show, status: :created, location: @item }
-      else
-        format.html { render :new }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
-      end
+    if @item.save
+      flash[:success] = 'Item cridado com sucesso!'
+      redirect_to list
+    else
+      flash[:danger] = @item.errors.full_messages.to_sentence
+      redirect_to new_list_item_path(@item.list_id)
     end
   end
 
@@ -46,15 +44,12 @@ class ItemsController < ApplicationController
     #2nd you retrieve the comment thanks to params[:id]
     @item = list.items.find(params[:id])
 
-    respond_to do |format|
-      if @item.update(item_params)
-        #1st argument of redirect_to is an array, in order to build the correct route to the nested resource comment
-        format.html { redirect_to(list_path(list), :notice => 'Item atualizado!') }
-        format.json { render :show, status: :ok, location: @item }
-      else
-        format.html { render :edit }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
-      end
+    if @item.update(item_params)
+      flash[:success] = 'Item atualizado com sucesso!'
+      redirect_to list_path(list)
+    else
+      flash[:danger] = @item.errors.full_messages.to_sentence
+      redirect_to edit_list_item_path(@item.list_id)
     end
   end
 
@@ -62,10 +57,8 @@ class ItemsController < ApplicationController
   # DELETE /items/1.json
   def destroy
     @item.destroy
-    respond_to do |format|
-      format.html { redirect_to list_url(@item.list), notice: 'Item removido com sucesso.' }
-      format.json { head :no_content }
-    end
+    flash[:success] = 'Item excluido com sucesso'
+    redirect_to list_url(@item.list)
   end
 
   private
