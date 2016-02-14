@@ -1,27 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<h2><%=@list.title%></h2>
+<h1 class="text-center"><%=@list.title%></h1>
 
-<h3>Cridada em: <%=@list.created_at.strftime("%d/%m/%Y")%></h3>
+<h3 class="text-center">Cridada em: <%=@list.created_at.strftime("%d/%m/%Y")%></h3>
 
-<%= link_to 'Novo Item', new_list_item_path(@list) %> |
-<%= link_to 'Editar Lista', edit_list_path(@list) %> |
-<%= link_to 'Minhas listas', lists_path %>
-
-<div class="col-sm-8">
-    <ul class="list-group">
-        <% @list.items.each do |i| %>
-            <li class="list-group-item">
-                <%= i.text %>
-                <div class="pull-right">
-                    <%= link_to(edit_list_item_path(i.list, i)) do %>
-                        <i class="fa fa-pencil fa-fw"></i>
-                    <% end %>
-                    <%= link_to(list_item_path(i.list, i), method: :delete, data: { confirm: 'Tem certeza que deseja apagar?' }) do %>
-                        <i class="fa fa-trash-o fa-fw"></i>
-                    <% end %>
-                </div>
-            </li>
-        <% end %>
-    </ul>    
+<div>
+    <div class="col-sm-8 col-md-offset-2">
+        <div class="pull-right">
+            <%= link_to 'Novo Item', new_list_item_path(@list) %> |
+            <%= link_to 'Editar Lista', edit_list_path(@list) %> |
+            <%= link_to 'Minhas listas', lists_path %>
+        </div>
+    </div>
+    <div class="col-sm-8 col-md-offset-2">
+        <ul class="list-group">
+            <% @list_items.each do |i| %>
+                <li class="list-group-item">
+                    <%= i.text %>
+                    <div class="pull-right">
+                        <%= link_to(edit_list_item_path(i.list, i)) do %>
+                            <i class="fa fa-pencil fa-fw"></i>
+                        <% end %>
+                        <%= link_to(list_item_path(i.list, i), method: :delete, data: { confirm: 'Tem certeza que deseja apagar?' }) do %>
+                            <i class="fa fa-trash-o fa-fw"></i>
+                        <% end %>
+                    </div>
+                </li>
+            <% end %>
+            <%= paginate @list_items %>
+        </ul>
+    </div>
 </div>

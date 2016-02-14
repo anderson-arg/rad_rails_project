@@ -1,1 +1,9 @@
-# rad_rails_project
+# List.it
+
+## Descrição
+
+...
+
+## Equipe
+* Artur Araújo
+* Thais Correia
