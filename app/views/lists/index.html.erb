@@ -15,10 +15,17 @@
       <div class="row">
         <% @lists.each do |list| %>
         <div class="col-sm-3" style="background-color:yellow; margin:10px;">
-          <p>
+          <div>
             <%= link_to list.title, list %>
-            <%= link_to 'Editar', edit_list_path(list), :class => "pull-right" %>
-          </p>
+            <div class="pull-right">
+              <%= link_to(edit_list_path(list)) do %>
+        				<i class="fa fa-pencil fa-fw"></i>
+        			<% end %>
+              <%= link_to( list_path(list), method: :delete, data: { confirm: 'Tem certeza que deseja apagar?' }) do %>
+                <i class="fa fa-trash-o fa-fw"></i>
+              <% end %>
+            </div>
+          </div>
           <p>Cridada em: <%=list.created_at.strftime("%d/%m/%Y")%></p>
           
           <ul style="list-style-type: square; padding: 15px;">
