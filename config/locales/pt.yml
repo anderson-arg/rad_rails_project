@@ -9,16 +9,32 @@ pt:
         
     errors:
       messages:
-        blank: 'não pode ser vazio'
+        invalid: 'inválido.'
+        blank: 'não pode ser vazio.'
       models:
-        client:
+        user:
           attributes:
             name:
-              invalid: 'invalido.'
-              blank: 'não pode ser vazio'
+              invalid: 'inválido.'
+              blank: 'não pode ser vazio.'
             email:
-              invalid: 'invalido.'
-              blank: 'não pode ser vazio'
-            senha:
-              invalid: 'invalida.'
-              blank: 'não pode ser vazio'
+              invalid: 'inválido.'
+              blank: 'não pode ser vazio.'
+            password:
+              invalid: 'inválida.'
+              blank: 'não pode ser vazia.'
+              too_short: 'precisa ter no mínimo 6 caracteres.'
+            password_confirmation:
+              blank: 'não pode ser vazia.'
+              confirmation: 'precisa ser igual à senha informada.'
+  controllers:
+    users:
+      create:
+        flash:
+          success: 'Usuário criado com sucesso.'
+      update:
+        flash:
+          success: 'Usuário atualizado com sucesso.'
+      delete:
+        flash:
+          success: 'Usuário removido com sucesso.'

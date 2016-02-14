@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user
+  before_action :logged_in_user, except: [:create]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -25,13 +25,13 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @client = Client.new(client_params)
-    if @client.save
-      flash['success'] = t('controllers.clients.create.flash.success')
-      log_in @client
+    @user = User.new(user_params)
+    if @user.save
+      flash['success'] = t('controllers.users.create.flash.success')
+      log_in @user
       redirect_to root_url
     else
-      render 'sessions/new'
+      render 'account/index'
     end
   end
 
@@ -67,6 +67,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:, :)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
 end

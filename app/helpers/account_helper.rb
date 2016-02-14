@@ -10,11 +10,11 @@ module AccountHelper
   end
   
   def logged_in?
-	!session[:user].nil?
+	  !session[:user_id].nil?
   end
   
   def current_user
-	User.find_by(id: session[:user])
+	User.find_by(id: session[:user_id])
   end
   
   def redirect_back_or(default)

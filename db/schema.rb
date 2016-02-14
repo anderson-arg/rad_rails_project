@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160212134639) do
+ActiveRecord::Schema.define(version: 20160214202022) do
 
   create_table "answers", force: :cascade do |t|
     t.integer  "user_list_id"
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 20160212134639) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
+    t.string   "photo"
   end
 
   add_index "list_categories", ["deleted_at"], name: "index_list_categories_on_deleted_at"
@@ -110,9 +111,10 @@ ActiveRecord::Schema.define(version: 20160212134639) do
     t.string   "password"
     t.string   "name"
     t.boolean  "is_active"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.datetime "deleted_at"
+    t.string   "password_digest", default: "", null: false
   end
 
   add_index "users", ["deleted_at"], name: "index_users_on_deleted_at"

@@ -28,9 +28,9 @@
                             <li> <%= link_to "Contato", contact_url %> </li>
                             <li> 
                               <% if !logged_in? %>
-                                <%= link_to "Login", login_url, :class => "account" %>
+                                <%= link_to "Login", login_url, class: "account" %>
                               <% else %>
-                                <%= link_to "Painel", destroy_url, :class => "account" %>
+                                <%= link_to "Painel", destroy_url, class: "account" %>
                               <% end %>
                             </li>
                           </ul>
