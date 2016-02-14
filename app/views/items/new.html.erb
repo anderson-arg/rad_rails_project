@@ -1,0 +1,6 @@
+<h1>New Item</h1>
+<%= form_for(@item, url: list_items_path) do |f| %>
+<%= render 'form', f: f %>
+<% end %>
+
+<%= link_to 'Voltar', list_items_path %>
