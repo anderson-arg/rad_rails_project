@@ -33,6 +33,9 @@
               <% first_three(list).each do |item| %>
                 <li><%= item.text %></li>
               <% end %>
+              <% if list.items.length > 3 then %>
+                <%= link_to "Ver mais...", list %>
+              <% end %>
             </ul>
           <% else %>
              <div style="padding: 15px; color: gray">Nenhum item</div>
