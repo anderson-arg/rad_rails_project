@@ -1,5 +1,5 @@
 class AccountController < ApplicationController
-    before_action :logged_out_user, only: [:index, :create, :destroy]
+    before_action :logged_out_user, only: [:index, :create]
     
     def index
         @user = User.new
@@ -13,8 +13,8 @@ class AccountController < ApplicationController
         else
           #create an error message
           @user = User.new
-          flash.now[:danger] = t('controllers.sessions.create.flash.error')
-          render 'new'
+          flash.now[:danger] = t('controllers.account.login.error')
+          render 'index'
         end
     end
     

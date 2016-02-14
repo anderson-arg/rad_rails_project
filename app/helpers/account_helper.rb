@@ -14,7 +14,7 @@ module AccountHelper
   end
   
   def current_user
-	User.find_by(id: session[:user_id])
+	  User.find_by(id: session[:user_id])
   end
   
   def redirect_back_or(default)
@@ -25,6 +25,14 @@ module AccountHelper
   # Store the URL given by the user to redirect him after login
   def store_location
     session[:forwarding_url] = request.url if request.get?
+  end
+  
+  def gravatar_for(user = current_user, options = {size: 30})
+      gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
+      size = options[:size]
+      default_url = "#{root_url}images/user.png"
+      gravatar_url = user.photo.nil? ? "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}&d=#{CGI.escape(default_url)}" : user.photo
+      image_tag(gravatar_url, alt: user.name, class: "gravatar img-circle", width: size)
   end
     
 end

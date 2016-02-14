@@ -1,4 +1,6 @@
 pt:
+  actions:
+    logout: 'Sair'
   activerecord:
     attributes:
       user:
@@ -20,6 +22,7 @@ pt:
             email:
               invalid: 'inválido.'
               blank: 'não pode ser vazio.'
+              taken: 'digitado já está cadastrado no sistema'
             password:
               invalid: 'inválida.'
               blank: 'não pode ser vazia.'
@@ -38,3 +41,6 @@ pt:
       delete:
         flash:
           success: 'Usuário removido com sucesso.'
+    account:
+      login:
+        error: 'Usuário não encontrado'

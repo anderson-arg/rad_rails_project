@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   
   get 'login'             => 'account#index'
 	post 'login'            => 'account#create'
-	delete 'logout'         => 'account#destroy', :as => :destroy
+	delete 'logout'         => 'account#destroy', :as => :logout
 	
 	get 'about'             => 'about#index', :as => :about
 	get 'contact'             => 'contact#index', :as => :contact
