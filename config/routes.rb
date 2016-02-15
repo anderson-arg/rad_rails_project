@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 	
 	get 'about'             => 'about#index', :as => :about
 	get 'contact'             => 'contact#index', :as => :contact
+	post 'contact'             => 'contact#send_email', :as => :send_email
   
   resources :lists do
     resources :items, only: [:index, :new, :create, :edit, :destroy, :update]

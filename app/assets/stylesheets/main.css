@@ -1,7 +1,7 @@
 /* var text-decoration */
 @font-face {
   font-family: myfont;
-  src: url(../fonts/ufonts.com_tw-cen-mt.ttf);
+  src: url(/assets/ufonts.com_tw-cen-mt.ttf);
 }
 /*--
     Common Css
@@ -51,6 +51,7 @@ a:active {
   text-decoration: none !important;
   font-size: 15px;
 }
+
 /*============== Mixins style start ================*/
 .overlay-effect {
   content: "";
@@ -141,7 +142,8 @@ a:active {
     nav Start
 --*/
 nav {
-  z-index: 99999;
+  position:relative;
+  z-index:5;
   width: 100%;
 }
 nav .block {

@@ -1,13 +1,19 @@
 pt:
+  time:
+      formats:
+        default: "%d/%m/%Y - %H:%M"
   actions:
     logout: 'Sair'
   activerecord:
     attributes:
       user:
-        name:                   'Nome'
-        password:               'Senha'
-        password_confirmation:  'Confirmação da senha'
-        id_active:              'Ativo'
+        name: 'Nome'
+        password: 'Senha'
+        password_confirmation: 'Confirmação da senha'
+        id_active: 'Ativo'
+      contact:
+        name: 'Nome'
+        message: 'Mensagem'
         
     errors:
       messages:
@@ -30,6 +36,18 @@ pt:
             password_confirmation:
               blank: 'não pode ser vazia.'
               confirmation: 'precisa ser igual à senha informada.'
+        contact:
+          attributes:
+            name:
+              invalid: 'inválido.'
+              blank: 'não pode ser vazio.'
+            email:
+              invalid: 'inválido.'
+              blank: 'não pode ser vazio.'
+              taken: 'digitado já está cadastrado no sistema'
+            message:
+              invalid: 'inválida.'
+              blank: 'não pode ser vazia.'
   controllers:
     users:
       create:
@@ -44,3 +62,5 @@ pt:
     account:
       login:
         error: 'Usuário não encontrado'
+    contact:
+      success: 'Mensagem enviada com sucesso!'

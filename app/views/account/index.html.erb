@@ -12,7 +12,7 @@
               <%= f.password_field :password, placeholder: 'Senha', class: 'form-control' %>
             </div>
 
-            <%= f.submit "Login", class: 'btn btn-default' %>
+            <%= f.submit "Login", class: 'btn btn-success' %>
           <% end %>
         </div><!--/login form-->
       </div>
@@ -24,7 +24,7 @@
           <h2>Cadastro</h2>
           <%= form_for(@user) do |f| %>
             <%= render 'users/form', f: f %>
-            <%= f.submit "Cadastrar", class: "btn btn-default" %>
+            <%= f.submit "Cadastrar", class: "btn btn-success" %>
           <%end%>
         </div><!--/sign up form-->
       </div>

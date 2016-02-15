@@ -1,0 +1,27 @@
+<div id="list_details<%= list.id %>" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">
+           <%= image_tag list.list_category.photo %> <%= list.title %> <br>
+           <span class="date pull-right">Criado por <%= list.user.name %> às <%= I18n.l list.created_at %></span>
+        </h4>
+      </div>
+      <div class="modal-body">
+        <p><%= list.description %></p>
+        <ul>
+        <% list.items.order([:order]).each do |i| %>
+            <li> <%= i.text %> </li>
+        <% end %>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+
+  </div>
+</div>

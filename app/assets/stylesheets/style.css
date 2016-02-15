@@ -1,5 +1,7 @@
 
-h2{color:red; margin:20px 0;}
+a{text-decoration:underline; color:#FF5333;}
+
+h2{text-align:center;}
 
 .logo{margin-top:15px; display:block;}
 
@@ -13,7 +15,7 @@ h2{color:red; margin:20px 0;}
 }
 
 .account{
-    color:red!important;
+    color:#FF5333!important;
 }
 
 .or{
@@ -25,3 +27,18 @@ h2{color:red; margin:20px 0;}
 li.gravatar{margin-top:-10px;}
 
 #navigation{position: fixed; top: 75px;}
+
+.list{
+    padding:20px;
+    border:solid 1px #c1c1c1;
+    text-align:center;
+    color:#555;
+}
+.list img{
+    padding-bottom:15px;
+    margin-bottom:15px;
+    border-bottom:solid 1px #ececec;
+}
+
+.modal-title .date{font-size:10px;}
+.modal-body ul{margin:15px 0 15px 15px; list-style:circle;}

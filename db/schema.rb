@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160214213904) do
+ActiveRecord::Schema.define(version: 20160215015607) do
 
   create_table "answers", force: :cascade do |t|
     t.integer  "user_list_id"
@@ -39,6 +39,14 @@ ActiveRecord::Schema.define(version: 20160214213904) do
   add_index "comments", ["deleted_at"], name: "index_comments_on_deleted_at"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
   add_index "comments", ["user_list_id"], name: "index_comments_on_user_list_id"
+
+  create_table "contacts", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.text     "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "item_types", force: :cascade do |t|
     t.string   "title"
