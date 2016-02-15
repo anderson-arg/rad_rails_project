@@ -5,7 +5,7 @@ class ListsController < ApplicationController
   # GET /lists
   # GET /lists.json
   def index
-    @lists = List.all
+    @lists = Kaminari.paginate_array(List.most_recent).page(params[:page]).per(4)
     # Filter by user:
     #@lists = List.where("user_id = ?", current_user.id)
   end
