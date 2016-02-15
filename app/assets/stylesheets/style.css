@@ -1,7 +1,15 @@
+
+h2{color:red; margin:20px 0;}
+
+.logo{margin-top:15px; display:block;}
+
 .body{
     margin-top:120px;
     background:#fff;
     padding:20px;
+    min-height:450px;
+    border:solid 1px #c1c1c1;
+    border-bottom:none;
 }
 
 .account{
