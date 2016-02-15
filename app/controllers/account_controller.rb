@@ -9,7 +9,8 @@ class AccountController < ApplicationController
         user = User.find_by(email: params[:session][:email].downcase)
         if user && user.authenticate(params[:session][:password])
             log_in user
-            redirect_back_or root_url
+            flash[:success] = "Bem vindo, " + user.name + "!  :)"
+            redirect_back_or lists_path
         else
           #create an error message
           @user = User.new
