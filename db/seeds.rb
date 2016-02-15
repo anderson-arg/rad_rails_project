@@ -13,21 +13,21 @@ List.create(:id => 3, :list_category_id => 2, :user_id => 1, :title => "Passos p
 List.create(:id => 4, :list_category_id => 1, :user_id => 2, :title => "Estudar", :description => "Tecnologias para estudar", :is_active => 1)
 
 
-Item.create(:id => 1, :list_id => 1, :order => 0, :text => "Ler 10 livros.")
-Item.create(:id => 2, :list_id => 1, :order => 1, :text => "Aprender a tocar uma nova música.")
-Item.create(:id => 3, :list_id => 1, :order => 2, :text => "Dormir.")
+Item.create(:list_id => 1, :order => 0, :text => "Ler 10 livros.")
+Item.create(:list_id => 1, :order => 1, :text => "Aprender a tocar uma nova música.")
+Item.create(:list_id => 1, :order => 2, :text => "Dormir.")
 
-Item.create(:id => 4, :list_id => 2, :order => 0, :text => "Juntar 20k.")
-Item.create(:id => 5, :list_id => 2, :order => 1, :text => "Ajudar uma ONG.")
-Item.create(:id => 6, :list_id => 2, :order => 2, :text => "Investir na bolsa de valores.")
+Item.create(:list_id => 2, :order => 0, :text => "Juntar 20k.")
+Item.create(:list_id => 2, :order => 1, :text => "Ajudar uma ONG.")
+Item.create(:list_id => 2, :order => 2, :text => "Investir na bolsa de valores.")
 
-Item.create(:id => 7, :list_id => 3, :order => 0, :text => "Jogar na mega-sena.")
-Item.create(:id => 8, :list_id => 3, :order => 1, :text => "Continuar jogando na mega-sena.")
+Item.create(:list_id => 3, :order => 0, :text => "Jogar na mega-sena.")
+Item.create(:list_id => 3, :order => 1, :text => "Continuar jogando na mega-sena.")
 
-Item.create(:id => 9, :list_id => 4, :order => 0, :text => "Ruby on Rails.")
-Item.create(:id => 10, :list_id => 4, :order => 1, :text => "Django.")
-Item.create(:id => 11, :list_id => 4, :order => 2, :text => "AngularJS.")
-Item.create(:id => 12, :list_id => 4, :order => 3, :text => "Node.js.")
+Item.create(:list_id => 4, :order => 0, :text => "Ruby on Rails.")
+Item.create(:list_id => 4, :order => 1, :text => "Django.")
+Item.create(:list_id => 4, :order => 2, :text => "AngularJS.")
+Item.create(:list_id => 4, :order => 3, :text => "Node.js.")
 
-Item.create(:id => 13, :list_id => 5, :order => 0, :text => "Item da lista.")
+Item.create(:list_id => 5, :order => 0, :text => "Item da lista.")
 
