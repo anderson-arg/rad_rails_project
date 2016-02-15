@@ -13,7 +13,7 @@ class ListsController < ApplicationController
   # GET /lists/1
   # GET /lists/1.json
   def show
-    @list_items = Kaminari.paginate_array(@list.items).page(params[:page]).per(5)
+    @list_items = Kaminari.paginate_array(@list.items).page(params[:page]).per(4)
   end
 
   # GET /lists/new
