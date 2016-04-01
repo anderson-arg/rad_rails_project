@@ -2,21 +2,21 @@
   <div class="col-md-6 col-md-offset-3">
     <div class="row">
       <div class="form-group">
-        <%= f.label :title, 'Nome da lista:'%>
+        <%= f.label :title, t('activerecord.attributes.list.title')%>
         <%= f.text_field :title, class: 'form-control' %>
       </div>
     </div>
     
     <div class="row">
       <div class="form-group">
-        <%= f.label :description, 'Descrição:'%>
+        <%= f.label :description, t('activerecord.attributes.list.description')%>
         <%= f.text_area :description, class: 'form-control' %>
       </div>
     </div>
     
     <div class="actions pull-right">
-      <%= link_to 'Voltar', lists_path %>
-      <%= f.submit "Enviar" %>
+      <%= link_to t('actions.back'), lists_path %>
+      <%= f.submit t('actions.send') %>
     </div>
   </div>
 <% end %>

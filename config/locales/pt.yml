@@ -2,9 +2,14 @@ pt:
   time:
       formats:
         default: "%d/%m/%Y - %H:%M"
+        date: "%d/%m/%Y"
   actions:
+    new: 'Novo'
+    nova: 'Nova'
+    edit: 'Editar'
     logout: 'Sair'
     send: 'Enviar'
+    back: 'Voltar'
   activerecord:
     attributes:
       item:
@@ -13,6 +18,7 @@ pt:
         title: 'Título'
         description: 'Descrição'
         is_private: 'privada'
+        created_at: 'Cridada em'
       user:
         name: 'Nome'
         password: 'Senha'
@@ -21,6 +27,17 @@ pt:
       contact:
         name: 'Nome'
         message: 'Mensagem'
+    models:
+      contact:
+        title: 'Contato'
+      item:
+        title: 'Itens'
+        one: 'Item'
+        other: 'Itens'
+      list:
+        title: 'Listas'
+        one: 'Lista'
+        other: 'Listas'
         
     errors:
       messages:
@@ -72,4 +89,6 @@ pt:
     contact:
       success: 'Mensagem enviada com sucesso!'
   texts:
-    contact_us: 'Entre en contato'
+    contact_us: 'Entre em contato'
+    created_by: 'Criado por'
+    confirmation: 'Tem certeza que deseja excluir?'

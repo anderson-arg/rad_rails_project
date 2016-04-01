@@ -1,15 +1,15 @@
 <div style="margin-bottom: 80px;">
     <h1 class="text-center"><%=@list.title%></h1>
 
-    <h3 class="text-center">Cridada em: <%=@list.created_at.strftime("%d/%m/%Y")%></h3>
+    <h3 class="text-center"><%= t('activerecord.attributes.list.created_at') + ': ' + @list.created_at.strftime(t('time.formats.date'))%></h3>
 </div>
 
 <div>
     <div class="col-sm-8 col-md-offset-2" style="margin-bottom: 25px;">
-        <h3>Itens:
+        <h3><%= t('activerecord.models.item.other') %>:
             <div class="pull-right">
-                <%= link_to 'Novo Item', new_list_item_path(@list) %> |
-                <%= link_to 'Editar Lista', edit_list_path(@list) %>
+                <%= link_to t('actions.new') + " " + t('activerecord.models.item.one'), new_list_item_path(@list) %> |
+                <%= link_to t('actions.edit') + " " + t('activerecord.models.item.one'), edit_list_path(@list) %>
             </div>
         </h3>
     </div>
@@ -22,7 +22,7 @@
                         <%= link_to(edit_list_item_path(i.list, i)) do %>
                             <i class="fa fa-pencil fa-fw"></i>
                         <% end %>
-                        <%= link_to(list_item_path(i.list, i), method: :delete, data: { confirm: 'Tem certeza que deseja apagar?' }, :remote => true, :class => 'delete_list_item') do %>
+                        <%= link_to(list_item_path(i.list, i), method: :delete, data: { confirm: t('texts.confirmation') }, :remote => true, :class => 'delete_list_item') do %>
                             <i class="fa fa-trash-o fa-fw"></i>
                         <% end %>
                     </div>

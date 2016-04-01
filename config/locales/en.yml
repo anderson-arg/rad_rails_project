@@ -1,24 +1,41 @@
 en:
   time:
       formats:
-        default: "%Y/%m/%d/ - %H:%M"
+        default: "%Y/%m/%d - %H:%M"
+        date: "%Y-%m-%d"
   actions:
+    new: 'New'
+    nova: 'New'
+    edit: 'Edit'
     logout: 'Logout'
     send: 'Send'
+    back: 'Back'
   activerecord:
     attributes:
       list:
         title: 'Title'
         description: 'Description'
         is_private: 'Private'
+        created_at: 'Created at'
       user:
         name: 'Name'
         password: 'Password'
         password_confirmation: 'Password Confirmation'
-        id_active: 'Active'
+        is_active: 'Active'
       contact:
         name: 'Name'
         message: 'Message'
+    models:
+      contact:
+        title: 'Contact Us'
+      item:
+        title: 'Items'
+        one: 'Item'
+        other: 'Items'
+      list:
+        title: 'Lists'
+        one: 'List'
+        other: 'Lists'
         
     errors:
       messages:
@@ -71,3 +88,5 @@ en:
       success: 'Your message was successfully sent!'
   texts:
       contact_us: 'Contact Us'
+      created_by: 'Created by'
+      confirmation: 'Are you sure?'
