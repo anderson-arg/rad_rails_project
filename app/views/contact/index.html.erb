@@ -2,7 +2,7 @@
 	<div class="col-sm-12">
 		<div class="contact-form">
 			<h2>Entre em contato</h2>
-			<%= form_for @contact, :url => send_email_url, :html => {class: "contact-form row"} do |f| %>
+			<%= form_for @contact, :url => send_email_path, :html => {class: "contact-form row"} do |f| %>
 				<%= render 'shared/error_messages', object: f.object %>
 				<div class="form-group col-md-6">
 					<%= f.text_field :name, class: "form-control", placeholder: "Nome" %>

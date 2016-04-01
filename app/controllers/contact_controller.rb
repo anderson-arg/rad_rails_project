@@ -6,15 +6,17 @@ class ContactController < ApplicationController
     
     def send_email
         @contact = Contact.new(form_params)
+        UserMailer.contact(@contact).deliver_now
         if @contact.save
             flash[:success] = t('controllers.contact.success')
         end
+        
         render 'index'
     end
     
     private
         def form_params
-          params.permit(:name, :email, :message)
+          params.require(:contact).permit(:name, :email, :message)
         end
         
 end
