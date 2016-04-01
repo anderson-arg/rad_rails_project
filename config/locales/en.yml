@@ -4,6 +4,7 @@ en:
         default: "%Y/%m/%d/ - %H:%M"
   actions:
     logout: 'Logout'
+    send: 'Send'
   activerecord:
     attributes:
       list:
@@ -68,3 +69,5 @@ en:
         error: 'User not found'
     contact:
       success: 'Your message was successfully sent!'
+  texts:
+      contact_us: 'Contact Us'

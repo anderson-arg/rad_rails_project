@@ -4,6 +4,7 @@ pt:
         default: "%d/%m/%Y - %H:%M"
   actions:
     logout: 'Sair'
+    send: 'Enviar'
   activerecord:
     attributes:
       item:
@@ -70,3 +71,5 @@ pt:
         error: 'Usuário não encontrado'
     contact:
       success: 'Mensagem enviada com sucesso!'
+  texts:
+    contact_us: 'Entre en contato'

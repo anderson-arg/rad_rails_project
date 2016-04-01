@@ -1,20 +1,21 @@
 <div class="row">
-	<div class="col-sm-12">
+	<div class="col-sm-2"></div>
+	<div class="col-sm-8">
 		<div class="contact-form">
-			<h2>Entre em contato</h2>
+			<h2 style="padding: 40px;"><%= t('texts.contact_us') %></h2>
 			<%= form_for @contact, :url => send_email_path, :html => {class: "contact-form row"} do |f| %>
 				<%= render 'shared/error_messages', object: f.object %>
 				<div class="form-group col-md-6">
-					<%= f.text_field :name, class: "form-control", placeholder: "Nome" %>
+					<%= f.text_field :name, class: "form-control", placeholder: t('activerecord.attributes.contact.name') %>
 				</div>
 				<div class="form-group col-md-6">
 					<%= f.text_field :email, class: "form-control", placeholder: "E-mail" %>
 				</div>
 				<div class="form-group col-md-12">
-					<%= f.text_area :message, class: "form-control", placeholder: "Digite sua mensagem", rows: "8" %>
+					<%= f.text_area :message, class: "form-control", placeholder: t('activerecord.attributes.contact.message'), rows: "8" %>
 				</div>
 				<div class="form-group col-md-12">
-					<%= submit_tag 'Enviar', method: "post", url: contact_url, class: "btn btn-success pull-right" %>
+					<%= submit_tag t('actions.send'), method: "post", url: contact_url, class: "btn btn-success pull-right" %>
 				</div>
 			<% end %>
 	    </div>
