@@ -57,8 +57,10 @@ class ItemsController < ApplicationController
   # DELETE /items/1.json
   def destroy
     @item.destroy
-    flash[:success] = 'Item excluido com sucesso'
-    redirect_to list_url(@item.list)
+    respond_to do |format|
+      format.html { redirect_to list_url(@item.list) }
+      format.js   { render :layout => false }
+    end
   end
 
   private
