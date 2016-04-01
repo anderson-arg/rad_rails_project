@@ -10,6 +10,11 @@ en:
     logout: 'Logout'
     send: 'Send'
     back: 'Back'
+  menus:
+    home: 'Home'
+    about: 'About'
+    lists: 'Lists'
+    contact: 'Contact'
   activerecord:
     attributes:
       list:
@@ -90,3 +95,5 @@ en:
       contact_us: 'Contact Us'
       created_by: 'Created by'
       confirmation: 'Are you sure?'
+      recent: 'created recentely'
+      see_all: 'See all'

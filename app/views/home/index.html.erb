@@ -1,6 +1,6 @@
 <div class="col-md-12">
     <div class="title">
-        <h2><span>Listas</span> mais recentes</h2>
+        <h2><span><%= t('activerecord.models.list.other') %></span> <%= t('texts.recent') %></h2>
     </div>
     <% if !@recent_lists.empty? %>
         <% @recent_lists.each_with_index do |list, index| %>
@@ -20,7 +20,7 @@
             <%= render 'lists/details', :list => list %>
         <% end %>
         <div class="col-md-1">
-            <%= link_to "Ver todas", lists_url, :class => "pull-right" %>
+            <%= link_to t('texts.see_all'), lists_url, :class => "pull-right" %>
         </div>
     <% else %>
         <p class="text-center">Não existem listas cadastradas.</p>

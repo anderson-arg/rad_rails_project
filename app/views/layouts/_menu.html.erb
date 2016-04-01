@@ -21,10 +21,10 @@
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                           <ul class="nav navbar-nav navbar-right" id="top-nav">
-                            <li> <%= link_to "Inicial", root_url %> </li>
-                            <li> <%= link_to "Sobre", about_url %> </li>
-                            <li> <%= link_to "Listas", lists_url %> </li>
-                            <li> <%= link_to "Contato", contact_url %> </li>
+                            <li> <%= link_to t('menus.home'), root_url %> </li>
+                            <li> <%= link_to t('menus.about'), about_url %> </li>
+                            <li> <%= link_to t('menus.lists'), lists_url %> </li>
+                            <li> <%= link_to t('menus.contact'), contact_url %> </li>
                             
                             <% if !logged_in? %>
                               <li>  <%= link_to "Login/Cadastro", login_url, class: "account" %> </li>

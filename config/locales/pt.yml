@@ -10,6 +10,11 @@ pt:
     logout: 'Sair'
     send: 'Enviar'
     back: 'Voltar'
+  menus:
+    home: 'Inicial'
+    about: 'Sobre'
+    lists: 'Listas'
+    contact: 'Contato'
   activerecord:
     attributes:
       item:
@@ -92,3 +97,5 @@ pt:
     contact_us: 'Entre em contato'
     created_by: 'Criado por'
     confirmation: 'Tem certeza que deseja excluir?'
+    recent: 'mais recentes'
+    see_all: 'Ver todas'
