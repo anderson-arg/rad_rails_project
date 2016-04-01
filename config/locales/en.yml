@@ -1,23 +1,66 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  time:
+      formats:
+        default: "%Y/%m/%d/ - %H:%M"
+  actions:
+    logout: 'Exit'
+  activerecord:
+    attributes:
+      user:
+        name: 'Name'
+        password: 'Password'
+        password_confirmation: 'Password Confirmation'
+        id_active: 'Active'
+      contact:
+        name: 'Name'
+        message: 'Message'
+        
+    errors:
+      messages:
+        invalid: 'invalid.'
+        blank: 'cannot be empty.'
+      models:
+        user:
+          attributes:
+            name:
+              invalid: 'invalid.'
+              blank: 'cannot be empty.'
+            email:
+              invalid: 'invalid.'
+              blank: 'cannot be empty.'
+              taken: 'already taken'
+            password:
+              invalid: 'invalid.'
+              blank: 'cannot be empty.'
+              too_short: 'must be at least 6 characters long.'
+            password_confirmation:
+              blank: 'cannot be empty.'
+              confirmation: 'does not match the informed password.'
+        contact:
+          attributes:
+            name:
+              invalid: 'invalid.'
+              blank: 'cannot be empty.'
+            email:
+              invalid: 'invalid.'
+              blank: 'cannot be empty.'
+              taken: 'is already taken'
+            message:
+              invalid: 'invalid.'
+              blank: 'cannot be empty.'
+  controllers:
+    users:
+      create:
+        flash:
+          success: 'User created successfully.'
+      update:
+        flash:
+          success: 'User updated successfully.'
+      delete:
+        flash:
+          success: 'User removed successfully.'
+    account:
+      login:
+        error: 'User not found'
+    contact:
+      success: 'Your message was successfully sent!'
