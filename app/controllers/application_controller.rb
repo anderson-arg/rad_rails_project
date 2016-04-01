@@ -3,6 +3,17 @@ class ApplicationController < ActionController::Base
   
   include AccountHelper
   
+  before_action :set_locale
+ 
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
+  
+  # app/controllers/application_controller.rb
+  def default_url_options(options = {})
+    { locale: I18n.locale }.merge options
+  end
+  
   private
     #prevent unauthenticated users
     def logged_in_user

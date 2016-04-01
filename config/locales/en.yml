@@ -3,9 +3,13 @@ en:
       formats:
         default: "%Y/%m/%d/ - %H:%M"
   actions:
-    logout: 'Exit'
+    logout: 'Logout'
   activerecord:
     attributes:
+      list:
+        title: 'Title'
+        description: 'Description'
+        is_private: 'Private'
       user:
         name: 'Name'
         password: 'Password'

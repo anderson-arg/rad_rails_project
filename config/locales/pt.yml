@@ -6,6 +6,12 @@ pt:
     logout: 'Sair'
   activerecord:
     attributes:
+      item:
+        text: 'Item'
+      list:
+        title: 'Título'
+        description: 'Descrição'
+        is_private: 'privada'
       user:
         name: 'Nome'
         password: 'Senha'
