@@ -24,6 +24,7 @@ en:
         created_at: 'Created at'
       user:
         name: 'Name'
+        email: 'E-mail'
         password: 'Password'
         password_confirmation: 'Password Confirmation'
         is_active: 'Active'
@@ -55,14 +56,14 @@ en:
             email:
               invalid: 'invalid.'
               blank: 'cannot be empty.'
-              taken: 'already taken'
+              taken: 'The e-mail informed is already taken'
             password:
               invalid: 'invalid.'
               blank: 'cannot be empty.'
-              too_short: 'must be at least 6 characters long.'
+              too_short: 'Password must be at least 6 characters long.'
             password_confirmation:
               blank: 'cannot be empty.'
-              confirmation: 'does not match the informed password.'
+              confirmation: 'The informed passwords does not match.'
         contact:
           attributes:
             name:

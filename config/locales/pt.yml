@@ -26,6 +26,7 @@ pt:
         created_at: 'Cridada em'
       user:
         name: 'Nome'
+        email: 'E-mail'
         password: 'Senha'
         password_confirmation: 'Confirmação da senha'
         id_active: 'Ativo'
@@ -57,14 +58,14 @@ pt:
             email:
               invalid: 'inválido.'
               blank: 'não pode ser vazio.'
-              taken: 'digitado já está cadastrado no sistema'
+              taken: 'O email informado já está cadastrado no sistema. Insira outro.'
             password:
               invalid: 'inválida.'
               blank: 'não pode ser vazia.'
-              too_short: 'precisa ter no mínimo 6 caracteres.'
+              too_short: 'A senha precisa ter no mínimo 6 caracteres.'
             password_confirmation:
               blank: 'não pode ser vazia.'
-              confirmation: 'precisa ser igual à senha informada.'
+              confirmation: 'As senhas informadas não correspondem.'
         contact:
           attributes:
             name:

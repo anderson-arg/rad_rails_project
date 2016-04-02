@@ -22,7 +22,7 @@
       <div class="col-sm-4">
         <div class="signup-form"><!--sign up form-->
           <h2>Cadastro</h2>
-          <%= form_for(@user) do |f| %>
+          <%= simple_form_for(@user, defaults: { input_html: { class: 'form-control' }, label:false }) do |f| %>
             <%= render 'users/form', f: f %>
             <%= f.submit "Cadastrar", class: "btn btn-success" %>
           <%end%>
