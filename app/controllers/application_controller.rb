@@ -6,7 +6,11 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
  
   def set_locale
-    I18n.locale = params[:locale] || I18n.default_locale
+    if !cookies[:locale] || params[:locale]
+      cookies[:locale] = params[:locale] || I18n.default_locale
+    end
+    
+    I18n.locale = params[:locale] || cookies[:locale]
   end
   
   # app/controllers/application_controller.rb
@@ -25,8 +29,8 @@ class ApplicationController < ActionController::Base
     end
 
   	def logged_out_user
-  	  if logged_in? 
-  	    redirect_to root_url
+      if logged_in? 
+        redirect_to root_url
       end
     end
   
