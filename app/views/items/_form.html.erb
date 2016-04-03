@@ -1,13 +1,42 @@
 <div class="col-md-5 col-md-offset-3">
+  
   <div class="row">
     <div class="form-group">
-      <%= f.label :text, 'Item:'%>
+      <%= f.label :description, t('activerecord.attributes.item.type') %>
+      <%= f.collection_select :item_type_id, ItemType.all, :id, :title, {:prompt=>false}, {:class=>'form-control'} %>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="form-group">
+      <%= f.label :text, t('activerecord.attributes.item.text')%>
       <%= f.text_field :text, class: 'form-control' %>
     </div>
   </div>
   
+  <div class="row">
+    <div class="form-group">
+      <%= f.label :description, t('activerecord.attributes.item.order') %>
+      <%= f.number_field :order, class: 'form-control' %>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="form-group">
+      <%= f.label :text, t('activerecord.attributes.item.is_private')%>
+      <%= f.check_box :is_private %>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="form-group">
+      <%= f.label :text, t('activerecord.attributes.item.is_active')%>
+      <%= f.check_box :is_active %>
+    </div>
+  </div>
+  
   <div class="actions pull-right">
-    <%= link_to 'Voltar', list_path(params[:list_id]), :class => "btn btn-default" %>
+    <%= link_to 'Voltar', user_list_path(params[:user_id], params[:list_id]), :class => "btn btn-default" %>
     <%= f.submit t('actions.save'), :class => "btn btn-success" %>
   </div>
 </div>

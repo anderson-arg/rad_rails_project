@@ -13,8 +13,10 @@
       <div class="modal-body">
         <p><%= list.description %></p>
         <ul>
-        <% list.items.order([:order]).each do |i| %>
-            <li> <%= i.text %> </li>
+        <% list.items.each do |i| %>
+            <% if !i.is_private || current_user == i.list.user %>
+              <li> <%= i.text %> </li>
+            <% end %>
         <% end %>
         </ul>
       </div>

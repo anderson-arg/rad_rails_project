@@ -28,6 +28,12 @@ en:
         is_private: 'Private'
         created_at: 'Created at'
         category: 'Category'
+      item:
+        text: 'Item'
+        type: 'Type'
+        order: 'Order'
+        is_private: 'Private'
+        is_active: 'Active'
       user:
         name: 'Name'
         email: 'E-mail'

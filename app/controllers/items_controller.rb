@@ -25,7 +25,7 @@ class ItemsController < ApplicationController
       redirect_to user_list_path(current_user,list)
     else
       flash[:danger] = @item.errors.full_messages.to_sentence
-      redirect_to new_list_item_path(@item.list_id)
+      redirect_to new_user_list_item_path(current_user, @item.list_id)
     end
   end
   
@@ -39,14 +39,14 @@ class ItemsController < ApplicationController
       redirect_to user_list_path(current_user,list)
     else
       flash[:danger] = @item.errors.full_messages.to_sentence
-      redirect_to edit_list_item_path(@item.list_id)
+      redirect_to edit_user_list_item_path(current_user, @item.list_id, @item)
     end
   end
 
   def destroy
     @item.destroy
     respond_to do |format|
-      format.html { redirect_to list_url(@item.list) }
+      format.html { redirect_to user_list_url(current_user, @item.list) }
       format.js   { render :layout => false }
     end
   end
@@ -57,6 +57,6 @@ class ItemsController < ApplicationController
     end
 
     def item_params
-      params.require(:item).permit(:text)
+      params.require(:item).permit(:text, :order, :item_type_id, :is_active, :is_private)
     end
 end

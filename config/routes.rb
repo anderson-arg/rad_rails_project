@@ -13,12 +13,12 @@ Rails.application.routes.draw do
         get 'contact'             => 'contact#index', :as => :contact
         post 'contact'             => 'contact#send_email', :as => :send_email
           
-        resources :lists do
-            resources :items, only: [:index, :new, :create, :edit, :destroy, :update]
-        end
+        resources :lists, only: [:index]
         
         resources :users, :constraints => { :id => /\(.+@.+\.[a-zA-Z1-9_]*\)|[^d]+/ } do
-            resources :lists, :constraints => { :user_id => /.+@.+\.[a-zA-Z1-9_]*/ }
+            resources :lists, :constraints => { :user_id => /.+@.+\.[a-zA-Z1-9_]*/ } do
+                resources :items, only: [:index, :new, :create, :edit, :destroy, :update]
+            end
         end
     end
 end

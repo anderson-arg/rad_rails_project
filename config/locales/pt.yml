@@ -22,14 +22,18 @@ pt:
     users: 'Usuários'
   activerecord:
     attributes:
-      item:
-        text: 'Item'
       list:
         title: 'Título'
         description: 'Descrição'
         is_private: 'privada'
         created_at: 'Cridada em'
         category: 'Categoria'
+      item:
+        text: 'Item'
+        type: 'Tipo'
+        order: 'Ordem'
+        is_private: 'Privado'
+        is_active: 'Ativo'
       user:
         name: 'Nome'
         email: 'E-mail'

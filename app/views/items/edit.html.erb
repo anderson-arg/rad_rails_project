@@ -1,7 +1,7 @@
 <div>
     <h1 class="text-center">Editar Item</h1>
     
-    <%= form_for(@item, url: list_item_path) do |f| %>
+    <%= form_for(@item, url: user_list_item_path) do |f| %>
     <%= render 'form', f: f %>
     <% end %>
     
