@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     ActiveAdmin.routes(self)
     devise_for :admin_users, ActiveAdmin::Devise.config
     
-    scope "(:locale)", locale: /en|pt/ do
+    scope "(:locale)", locale: /en|pt/, :defaults => { :format => 'html' } do
         root   to:	'home#index'
         
         get 'login'             => 'account#index'
@@ -14,11 +14,13 @@ Rails.application.routes.draw do
         get 'contact'             => 'contact#index', :as => :contact
         post 'contact'             => 'contact#send_email', :as => :send_email
           
-        resources :lists, only: [:index]
+        resources :lists, only: [:index, :show] do
+            resources :items, only: [:index, :show]
+        end
         
-        resources :users, :constraints => { :id => /\(.+@.+\.[a-zA-Z1-9_]*\)|[^d]+/ } do
-            resources :lists, :constraints => { :user_id => /.+@.+\.[a-zA-Z1-9_]*/ } do
-                resources :items, only: [:index, :new, :create, :edit, :destroy, :update]
+        resources :users, :constraints => { :id => /.+@.+\.[a-zA-Z1-9_]*|[1-9]+/ } do
+            resources :lists, :constraints => { :user_id => /.+@.+\.[a-zA-Z1-9_]*|[1-9]+/ } do
+                resources :items, only: [:index, :show, :new, :create, :edit, :destroy, :update]
             end
         end
     end

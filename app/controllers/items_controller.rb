@@ -1,12 +1,23 @@
 class ItemsController < ApplicationController
   before_action :logged_in_user
+  before_action :set_list, only: [:index]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @items = Item.all
+    @items = @list.items
+    respond_to do |format|
+      format.html { redirect_to @user != nil && @user != current_user ? root_url : user_list_path(@list.user, @list) }
+      format.xml { render :xml => @items }
+      format.json { render :json => @items }
+    end
   end
 
   def show
+    respond_to do |format|
+      format.html {  }
+      format.xml { render :xml => @item }
+      format.json { render :json => @item }
+    end
   end
   
   def new
@@ -52,6 +63,10 @@ class ItemsController < ApplicationController
   end
 
   private
+    def set_list
+      @list = List.find(params[:list_id])
+    end
+    
     def set_item
       @item = Item.find(params[:id])
     end

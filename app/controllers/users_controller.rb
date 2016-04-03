@@ -4,9 +4,19 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    respond_to do |format|
+      format.html { }
+      format.xml { render :xml => @users }
+      format.json {  }
+    end
   end
 
   def show
+    respond_to do |format|
+      format.html { }
+      format.xml { render :xml => @user }
+      format.json {  }
+    end
   end
 
   def new
