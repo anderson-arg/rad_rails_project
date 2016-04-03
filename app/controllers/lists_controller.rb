@@ -4,8 +4,7 @@ class ListsController < ApplicationController
   before_action :set_list, only: [:show, :edit, :update, :destroy]
 
   def index
-    @lists_a = @user ? @user.lists.most_recent : List.most_recent
-    @lists = Kaminari.paginate_array(@lists_a).page(params[:page]).per(4)
+    @lists = @user ? Kaminari.paginate_array(@user.lists.most_recent).page(params[:page]).per(20) : Kaminari.paginate_array(List.most_recent).page(params[:page]).per(4)
     # Filter by user:
     #@lists = List.where("user_id = ?", current_user.id)
   end
@@ -55,14 +54,13 @@ class ListsController < ApplicationController
     if @user
       @list.destroy
       flash[:success] = 'Lista excluida com sucesso'
-      redirect_to lists_url
+      redirect_to user_lists_url(@user)
     else
       redirect_to root_url
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_list
       @list = @user.lists.where(:id => params[:id]).first
       redirect_to root_url if !@list
@@ -72,7 +70,6 @@ class ListsController < ApplicationController
       @user = params[:user_id] ? User.friendly.find(params[:user_id]) : nil
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def list_params
       params.require(:list).permit(:title, :description)
     end

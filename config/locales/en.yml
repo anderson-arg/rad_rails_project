@@ -12,6 +12,7 @@ en:
     send: 'Send'
     back: 'Back'
     remove: 'Delete'
+    save: 'Salvar'
   menus:
     home: 'Home'
     about: 'About'
@@ -26,6 +27,7 @@ en:
         description: 'Description'
         is_private: 'Private'
         created_at: 'Created at'
+        category: 'Category'
       user:
         name: 'Name'
         email: 'E-mail'
@@ -96,6 +98,8 @@ en:
         error: 'User not found'
     contact:
       success: 'Your message was successfully sent!'
+    lists:
+      empty: "There are no lists registered yet."
   texts:
       contact_us: 'Contact Us'
       created_by: 'Created by'

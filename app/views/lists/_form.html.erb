@@ -1,5 +1,13 @@
 <%= form_for(@list) do |f| %>
   <div class="col-md-6 col-md-offset-3">
+    
+    <div class="row">
+      <div class="form-group">
+        <%= f.label :description, t('activerecord.attributes.list.category') %>
+        <%= f.collection_select :list_category_id, ListCategory.all, :id, :title, {:prompt=>false}, {:class=>'form-control'} %>
+      </div>
+    </div>
+    
     <div class="row">
       <div class="form-group">
         <%= f.label :title, t('activerecord.attributes.list.title')%>
@@ -15,8 +23,8 @@
     </div>
     
     <div class="actions pull-right">
-      <%= link_to t('actions.back'), lists_path %>
-      <%= f.submit t('actions.send') %>
+      <%= link_to t('actions.back'), user_lists_path(current_user), class:"btn btn-default" %>
+      <%= f.submit t('actions.save'), :class => "btn btn-success" %>
     </div>
   </div>
 <% end %>
