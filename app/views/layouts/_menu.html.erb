@@ -24,6 +24,7 @@
                             <li> <%= link_to t('menus.home'), root_url %> </li>
                             <li> <%= link_to t('menus.about'), about_url %> </li>
                             <li> <%= link_to t('menus.lists'), lists_url %> </li>
+                            <li> <%= link_to t('menus.users'), users_url %> </li>
                             <li> <%= link_to t('menus.contact'), contact_url %> </li>
                             
                             <% if !logged_in? %>
@@ -37,7 +38,14 @@
                         				<ul class="dropdown-menu extended logout">
                         					<div class="log-arrow-up"></div>
                         					<li class="eborder-top">
-                        						<a href="#"><i class="icon_profile"></i>Painel</a>
+                      							<%= link_to current_user, method: :get do %>
+                        							<i class="icon_key_alt"></i> <%= t('actions.profile') %></a>
+                        						<% end %>
+                        					</li>
+                        					<li class="eborder-top">
+                        						<%= link_to user_lists_path(current_user), method: :get do %>
+                        							<i class="icon_key_alt"></i> <%= t('menus.my_lists') %></a>
+                        						<% end %>
                         					</li>
                         					<li>
                         						<%= link_to logout_url, method: :delete, id: 'logout' do %>

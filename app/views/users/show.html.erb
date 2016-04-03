@@ -1,14 +1,14 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>:</strong>
-  <%= @user. %>
-</p>
-
-<p>
-  <strong>:</strong>
-  <%= @user. %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<div class="col-md-12 text-center">
+  <%= gravatar_for(@user, size: 150) %>
+  <p>
+    <strong>Nome:</strong>
+    <%= @user.name %>
+  </p>
+  <p>
+    <strong>Email:</strong>
+    <%= @user.email %>
+  </p>
+  <% if @user == current_user %>
+    <%= link_to 'Editar', edit_user_path(@user) %>
+  <% end %>
+</div>

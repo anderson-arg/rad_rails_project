@@ -8,13 +8,17 @@ en:
     nova: 'New'
     edit: 'Edit'
     logout: 'Logout'
+    profile: 'Profile'
     send: 'Send'
     back: 'Back'
+    remove: 'Delete'
   menus:
     home: 'Home'
     about: 'About'
     lists: 'Lists'
+    my_lists: 'My Lists'
     contact: 'Contact'
+    users: 'Users'
   activerecord:
     attributes:
       list:

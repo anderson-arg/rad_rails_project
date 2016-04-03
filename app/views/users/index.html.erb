@@ -1,29 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Users</h1>
+<h1 class="text-center"><%= t('menus.users') %></h1>
 
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user. %></td>
-        <td><%= user. %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<% @users.each do |user| %>
+  <div class="cols-md-12" style="margin:20px">
+    <%= gravatar_for(user) %> 
+    <%= link_to user.name, user %></td>
+    <%= user.email %></td>
+    <% if user == current_user %>
+      <%= link_to 'Editar', edit_user_path(user) %>
     <% end %>
-  </tbody>
-</table>
+  </div>
+<% end %>
 
-<br>
-
-<%= link_to 'New User', new_user_path %>

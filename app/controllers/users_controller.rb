@@ -20,6 +20,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    redirect_to root_url if @user == nil
   end
 
   # POST /users
@@ -40,7 +41,8 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: t('controllers.users.update.flash.success')
+      log_in @user }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -52,17 +54,18 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
+    if @user != null
+      log_out
+      @user.destroy
     end
+    redirect_to root_url
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      @user = User.friendly.find("#{params[:id]}")
+      @user =  nil if current_user != @user
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

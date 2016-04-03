@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
     acts_as_paranoid
     
+    extend FriendlyId
+    friendly_id :email
+    
     EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
     
     validates :name, :email, :password, :password_confirmation, presence: true

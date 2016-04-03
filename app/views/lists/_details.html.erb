@@ -7,7 +7,7 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">
            <%= image_tag list.list_category.photo if !list.list_category.nil?%> <%= list.title %> <br>
-           <span class="date pull-right">Criado por <%= list.user.name %> às <%= I18n.l list.created_at %></span>
+           <span class="date pull-right">Criado por <%= list.user.nil? ? "--" : list.user.name %> às <%= I18n.l list.created_at %></span>
         </h4>
       </div>
       <div class="modal-body">

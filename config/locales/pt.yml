@@ -7,14 +7,18 @@ pt:
     new: 'Novo'
     nova: 'Nova'
     edit: 'Editar'
+    profile: 'Perfil'
     logout: 'Sair'
     send: 'Enviar'
     back: 'Voltar'
+    remove: 'Apagar'
   menus:
     home: 'Inicial'
     about: 'Sobre'
     lists: 'Listas'
+    my_lists: 'Minhas Listas'
     contact: 'Contato'
+    users: 'Usuários'
   activerecord:
     attributes:
       item:
@@ -49,6 +53,7 @@ pt:
       messages:
         invalid: 'inválido.'
         blank: 'não pode ser vazio.'
+        record_invalid: 'Erros de validação!'
       models:
         user:
           attributes:
