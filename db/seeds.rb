@@ -30,3 +30,4 @@ Item.create(:list_id => 4, :order => 3, :text => "Node.js.")
 
 Item.create(:list_id => 5, :order => 0, :text => "Item da lista.")
 
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
