@@ -73,6 +73,10 @@ pt:
             password_confirmation:
               blank: 'não pode ser vazia.'
               confirmation: 'As senhas informadas não correspondem.'
+        list:
+          attributes:
+            title:
+              taken: 'O título digitado já foi cadastrado para essa categoria!'
         contact:
           attributes:
             name:

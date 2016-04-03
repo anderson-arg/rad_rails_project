@@ -70,6 +70,10 @@ en:
             password_confirmation:
               blank: 'cannot be empty.'
               confirmation: 'The informed passwords does not match.'
+        list:
+          attributes:
+            title:
+              taken: 'There is already a list with that title for the selected category!'
         contact:
           attributes:
             name:

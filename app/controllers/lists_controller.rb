@@ -33,20 +33,20 @@ class ListsController < ApplicationController
     
     if @list.save
       flash[:success] = 'Lista criada com sucesso!'
-      redirect_to @list
+      redirect_to user_lists_path(@user)
     else
       flash[:danger] = @list.errors.full_messages.to_sentence
-      redirect_to new_list_path(@list)
+      redirect_to  new_user_list_path(@user)
     end
   end
 
   def update
     if @list.update(list_params)
       flash[:success] = 'Lista atualizada com sucesso!'
-      redirect_to @list
+      redirect_to @user ? user_lists_path(@user) : @list
     else
       flash[:danger] = @list.errors.full_messages.to_sentence
-      redirect_to edit_list_path(@list)
+      redirect_to edit_user_list_path(@user, @list)
     end
   end
 
@@ -71,6 +71,6 @@ class ListsController < ApplicationController
     end
 
     def list_params
-      params.require(:list).permit(:title, :description)
+      params.require(:list).permit(:title, :description, :list_category_id)
     end
 end

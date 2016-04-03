@@ -37,7 +37,7 @@
                       </td>
                       <td>
                         <%= link_to t('activerecord.models.item.title'), user_list_path(:user_id => current_user.email, :id => list.id), :class => "btn btn-default" %>
-                        <%= link_to t('actions.edit'), user_list_path(current_user, list), :method => :put, :class => "btn btn-warning" %>
+                        <%= link_to t('actions.edit'), edit_user_list_path(current_user, list), :method => :get, :class => "btn btn-warning" %>
                         <%= link_to t('actions.remove'), user_list_path(current_user, list), :method => :delete, :class => "btn btn-danger", data: { confirm: 'Tem certeza que deseja apagar?' } %>
                       </td>
                     </tr>
