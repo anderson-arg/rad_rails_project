@@ -32,3 +32,4 @@ Item.create(:list_id => 4, :order => 3, :item_type_id => 1, :text => "Node.js.",
 
 Item.create(:list_id => 5, :order => 0, :item_type_id => 1, :text => "Item da lista.", :is_active => 1, :is_private => 0)
 
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
