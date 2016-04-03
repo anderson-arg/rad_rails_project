@@ -1,28 +1,84 @@
-<div class="col-md-12">
-    <div class="title">
-        <h2><span><%= t('activerecord.models.list.title') %></h2>
-    </div>
-    <% if !@lists.empty? %>
-        <% @lists.each_with_index do |list, index| %>
-            <% if index > 0 %>
-                <div class="col-md-1">
-                </div>
-            <% end %>
-            <a href="#" data-toggle="modal" data-target="#list_details<%= list.id %>">
-                <div class="col-md-2 list">
-                    <%= image_tag list.list_category.photo if !list.list_category.nil?%>
-                    <h3><%= list.title %></h3>
-                    <div class="description">
-                        <%= list.description %>
-                    </div>
-                </div>
-            </a>
-            <%= render 'lists/details', :list => list %>
-        <% end %>
-        <div class="col-md-12">
-            <%= paginate @lists %>
+<% if current_user && @user %>
+    <div class="col-md-12 text-center">
+        <div class="title">
+            <h2><span><%= t('menus.my_lists') %></h2>
         </div>
-    <% else %>
-        <p class="text-center">Não existem listas cadastradas.</p>
-    <% end %>
-</div>
+        <% if !@lists.empty? %>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Data</th>
+                  <th>Categoria</th>
+                  <th>Título</th>
+                  <th>Descrição</th>
+                  <th>Autor</th>
+                  <th class="last">
+                  	<%= link_to t('actions.nova') + " " + t('activerecord.models.list.one'), new_user_list_path(current_user), :class => "btn btn-default" %>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @lists.each do |list| %>
+                    <tr>
+                      <td>
+                        <%= list.created_at.strftime("%d/%m/%Y %H:%M:%S") %>
+                      </td>
+                      <td>
+                        <%= list.list_category.title %>
+                      </td>
+                      <td>
+                        <%= list.title %>
+                      </td>
+                      <td>
+                        <%= list.description %>
+                      </td>
+                      <td>
+                        <%= list.user.name %>
+                      </td>
+                      <td>
+                        <%= link_to t('activerecord.models.item.title'), user_list_path(:user_id => current_user.email, :id => list.id), :class => "btn btn-default" %>
+                        <%= link_to t('actions.edit'), edit_user_list_path(current_user, list), :method => :get, :class => "btn btn-warning" %>
+                        <%= link_to t('actions.remove'), user_list_path(current_user, list), :method => :delete, :class => "btn btn-danger", data: { confirm: 'Tem certeza que deseja apagar?' } %>
+                      </td>
+                    </tr>
+                <% end %>
+            </tbody>
+            </table>
+            <div class="col-md-12">
+                <%= paginate @lists %>
+            </div>
+        <% else %>
+            <p class="text-center"><%= t('controllers.lists.empty') %></p>
+            <%= link_to t('actions.nova') + " " + t('activerecord.models.list.one'), new_user_list_path(current_user), :class => "btn btn-default" %>
+        <% end %>
+    </div>
+<% else %>
+    <div class="col-md-12">
+        <div class="title">
+            <h2><span><%= t('activerecord.models.list.title') %></h2>
+        </div>
+        <% if !@lists.empty? %>
+            <% @lists.each_with_index do |list, index| %>
+                <% if index > 0 %>
+                    <div class="col-md-1">
+                    </div>
+                <% end %>
+                <a href="#" data-toggle="modal" data-target="#list_details<%= list.id %>">
+                    <div class="col-md-2 list">
+                        <%= image_tag list.list_category.photo if !list.list_category.nil?%>
+                        <h3><%= list.title %></h3>
+                        <div class="description">
+                            <%= list.description %>
+                        </div>
+                    </div>
+                </a>
+                <%= render 'lists/details', :list => list %>
+            <% end %>
+            <div class="col-md-12">
+                <%= paginate @lists %>
+            </div>
+        <% else %>
+            <p class="text-center"><%= t('controllers.lists.empty') %></p>
+        <% end %>
+    </div>
+<% end %>

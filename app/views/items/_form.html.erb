@@ -7,7 +7,7 @@
   </div>
   
   <div class="actions pull-right">
-    <%= link_to 'Voltar', list_path(params[:list_id]) %>
-    <%= f.submit t('actions.send') %>
+    <%= link_to 'Voltar', list_path(params[:list_id]), :class => "btn btn-default" %>
+    <%= f.submit t('actions.save'), :class => "btn btn-success" %>
   </div>
 </div>

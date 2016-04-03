@@ -12,6 +12,7 @@ pt:
     send: 'Enviar'
     back: 'Voltar'
     remove: 'Apagar'
+    save: 'Salvar'
   menus:
     home: 'Inicial'
     about: 'Sobre'
@@ -28,6 +29,7 @@ pt:
         description: 'Descrição'
         is_private: 'privada'
         created_at: 'Cridada em'
+        category: 'Categoria'
       user:
         name: 'Nome'
         email: 'E-mail'
@@ -71,6 +73,10 @@ pt:
             password_confirmation:
               blank: 'não pode ser vazia.'
               confirmation: 'As senhas informadas não correspondem.'
+        list:
+          attributes:
+            title:
+              taken: 'O título digitado já foi cadastrado para essa categoria!'
         contact:
           attributes:
             name:
@@ -99,6 +105,8 @@ pt:
         error: 'Usuário não encontrado'
     contact:
       success: 'Mensagem enviada com sucesso!'
+    lists:
+      empty: "Não existem listas cadastradas."
   texts:
     contact_us: 'Entre em contato'
     created_by: 'Criado por'
