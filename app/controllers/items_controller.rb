@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_filter :set_format, only: [:destroy]
   before_action :logged_in_user
   before_action :set_list, only: [:index]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
@@ -54,10 +55,9 @@ class ItemsController < ApplicationController
     end
   end
 
-  def destroy
+   def destroy
     @item.destroy
     respond_to do |format|
-      format.html { redirect_to user_list_url(current_user, @item.list) }
       format.js   { render :layout => false }
     end
   end
@@ -73,5 +73,9 @@ class ItemsController < ApplicationController
 
     def item_params
       params.require(:item).permit(:text, :order, :item_type_id, :is_active, :is_private)
+    end
+    
+    def set_format
+      request.format = 'js'
     end
 end

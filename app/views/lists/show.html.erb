@@ -22,7 +22,7 @@
                         <%= link_to edit_user_list_item_path(current_user, i.list, i) do %>
                             <i class="fa fa-pencil fa-fw"></i>
                         <% end %>
-                        <%= link_to(user_list_item_path(@user, i.list, i), method: :delete, data: { confirm: t('texts.confirmation') }, :remote => true, :class => 'delete_list_item') do %>
+                        <%= link_to(user_list_item_path(current_user, i.list, i), method: :delete, data: { confirm: t('texts.confirmation') }, :remote => true, :class => 'delete_list_item', :format => "js") do %>
                             <i class="fa fa-trash-o fa-fw"></i>
                         <% end %>
                     </div>
