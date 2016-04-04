@@ -18,8 +18,8 @@ Rails.application.routes.draw do
             resources :items, only: [:index, :show]
         end
         
-        resources :users, :constraints => { :id => /.+@.+\.[a-zA-Z1-9_]*|[1-9]+/ } do
-            resources :lists, :constraints => { :user_id => /.+@.+\.[a-zA-Z1-9_]*|[1-9]+/ } do
+        resources :users, :constraints => { :id => /.+@.+\.[a-zA-Z1-9_]*|[0-9]+/ } do
+            resources :lists, :constraints => { :user_id => /.+@.+\.[a-zA-Z1-9_]*|[0-9]+/ } do
                 resources :items, only: [:index, :show, :new, :create, :edit, :destroy, :update]
             end
         end
