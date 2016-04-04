@@ -48,6 +48,8 @@ pt:
     models:
       contact:
         title: 'Contato'
+        one: 'Contato'
+        other: 'Contato'
       item:
         title: 'Itens'
         one: 'Item'

@@ -48,6 +48,8 @@ en:
     models:
       contact:
         title: 'Contact Us'
+        one: 'Contact Us'
+        other: 'Contact Us'
       item:
         title: 'Items'
         one: 'Item'

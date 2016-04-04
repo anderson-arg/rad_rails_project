@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
   def show
     respond_to do |format|
-      format.html { }
+      format.html { @user = User.friendly.find("#{params[:id]}") }
       format.xml { render :xml => @user }
       format.json {  }
     end
