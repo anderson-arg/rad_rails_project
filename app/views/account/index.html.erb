@@ -24,7 +24,7 @@
           <h2>Cadastro</h2>
           <%= simple_form_for(@user, defaults: { input_html: { class: 'form-control' }, label:false }) do |f| %>
             <%= render 'users/form', f: f %>
-            <%= f.submit "Cadastrar", class: "btn btn-success" %>
+            <%= f.submit t('actions.register'), class: "btn btn-success", id: "register_button" %>
           <%end%>
         </div><!--/sign up form-->
       </div>
