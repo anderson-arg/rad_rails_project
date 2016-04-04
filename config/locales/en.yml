@@ -21,6 +21,7 @@ en:
     my_lists: 'My Lists'
     contact: 'Contact'
     users: 'Users'
+    login: 'Login/Register'
   activerecord:
     attributes:
       list:
@@ -111,9 +112,29 @@ en:
       success: 'Your message was successfully sent!'
     lists:
       empty: "There are no lists registered yet."
+      create:
+        flash:
+          success: 'List created successfully.'
+      update:
+        flash:
+          success: 'List updated successfully.'
+      delete:
+        flash:
+          success: 'List removed successfully.'
+    items:
+      create:
+        flash:
+          success: 'Item created successfully.'
+      update:
+        flash:
+          success: 'Item updated successfully.'
+      delete:
+        flash:
+          success: 'Item removed successfully.'
   texts:
       contact_us: 'Contact Us'
       created_by: 'Created by'
       confirmation: 'Are you sure?'
       recent: 'created recentely'
       see_all: 'See all'
+      welcome: 'Welcome, '

@@ -35,7 +35,7 @@
                             <li> <%= link_to t('menus.contact'), contact_url %> </li>
                             
                             <% if !logged_in? %>
-                              <li>  <%= link_to "Login/Cadastro", login_url, class: "account" %> </li>
+                              <li>  <%= link_to t('menus.login'), login_url, class: "account" %> </li>
                             <% else %>
                               <li class="dropdown gravatar">
                         				<a data-toggle="dropdown" class="dropdown-toggle" href="#">

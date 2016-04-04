@@ -44,7 +44,7 @@ class ListsController < ApplicationController
     @list.user = current_user
     
     if @list.save
-      flash[:success] = 'Lista criada com sucesso!'
+      flash[:success] = t('controllers.lists.create.flash.success')
       redirect_to user_lists_path(@user)
     else
       flash[:danger] = @list.errors.full_messages.to_sentence
@@ -54,7 +54,7 @@ class ListsController < ApplicationController
 
   def update
     if @list.update(list_params)
-      flash[:success] = 'Lista atualizada com sucesso!'
+      flash[:success] = t('controllers.lists.update.flash.success')
       redirect_to @user ? user_lists_path(@user) : @list
     else
       flash[:danger] = @list.errors.full_messages.to_sentence
@@ -65,7 +65,7 @@ class ListsController < ApplicationController
   def destroy
     if @user
       @list.destroy
-      flash[:success] = 'Lista excluida com sucesso'
+      flash[:success] = t('controllers.lists.delete.flash.success')
       redirect_to user_lists_url(@user)
     else
       redirect_to root_url

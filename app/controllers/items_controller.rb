@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
     @item = list.items.new(item_params)
 
     if @item.save
-      flash[:success] = 'Item cridado com sucesso!'
+      flash[:success] = t('controllers.items.create.flash.success')
       redirect_to user_list_path(current_user,list)
     else
       flash[:danger] = @item.errors.full_messages.to_sentence
@@ -47,7 +47,7 @@ class ItemsController < ApplicationController
     @item = list.items.find(params[:id])
 
     if @item.update(item_params)
-      flash[:success] = 'Item atualizado com sucesso!'
+      flash[:success] = t('controllers.items.create.flash.success')
       redirect_to user_list_path(current_user,list)
     else
       flash[:danger] = @item.errors.full_messages.to_sentence

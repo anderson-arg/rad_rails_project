@@ -21,6 +21,7 @@ pt:
     my_lists: 'Minhas Listas'
     contact: 'Contato'
     users: 'Usuários'
+    login: 'Login/Cadastro'
   activerecord:
     attributes:
       list:
@@ -112,9 +113,29 @@ pt:
       success: 'Mensagem enviada com sucesso!'
     lists:
       empty: "Não existem listas cadastradas."
+      create:
+        flash:
+          success: 'Lista criada com sucesso!'
+      update:
+        flash:
+          success: 'Lista atualizada com sucesso!'
+      delete:
+        flash:
+          success: 'Lista removida com sucesso!'
+    items:
+      create:
+        flash:
+          success: 'Item criado com sucesso!'
+      update:
+        flash:
+          success: 'Item atualizado com sucesso!'
+      delete:
+        flash:
+          success: 'Item removido com sucesso!'
   texts:
     contact_us: 'Entre em contato'
     created_by: 'Criado por'
     confirmation: 'Tem certeza que deseja excluir?'
     recent: 'mais recentes'
     see_all: 'Ver todas'
+    welcome: 'Bem vindo, '

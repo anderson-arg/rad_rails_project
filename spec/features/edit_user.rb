@@ -1,24 +1,32 @@
 require 'rails_helper'
 
-feature "Create User" do
+feature "Edit User" do
   given(:user) { FactoryGirl.create(:user) }
+  
+  background do
+    login(user)
+    @email = (0...8).map { (65 + rand(26)).chr }.join
+    FactoryGirl.create(:user, :email => "test2@email.com")
+  end
 
   scenario "Successfully" do
-    visit login_path
-    save_user({
+    visit user_path(id: user)
+    click_link I18n.t('actions.edit')
+    update_user({
       user_name: user.name,
-      user_email: "#{(0...8).map { (65 + rand(26)).chr }.join}@email.com",
+      user_email: "#{@email}@email.com",
       user_password: user.password,
       user_password_confirmation: user.password_confirmation,
     })
-    expect(page).to have_content I18n.t('controllers.users.create.flash.success')
+    expect(page).to have_content I18n.t('controllers.users.update.flash.success')
   end
   
   scenario "Unsuccessfully - Email already taken" do
-    visit login_path
-    save_user({
+    visit user_path(id: user)
+    click_link I18n.t('actions.edit')
+    update_user({
       user_name: user.name,
-      user_email: user.email,
+      user_email: "test2@email.com",
       user_password: user.password,
       user_password_confirmation: user.password_confirmation,
     })
@@ -26,8 +34,9 @@ feature "Create User" do
   end
   
   scenario "Unsuccessfully - Invalid Email" do
-    visit login_path
-    save_user({
+    visit user_path(id: user)
+    click_link I18n.t('actions.edit')
+    update_user({
       user_name: user.name,
       user_email: "aldkjf",
       user_password: user.password,
@@ -37,8 +46,9 @@ feature "Create User" do
   end
 
   scenario "Unsuccessfully - Missing name" do
-    visit login_path
-    save_user({
+    visit user_path(id: user)
+    click_link I18n.t('actions.edit')
+    update_user({
       user_name: "",
       user_email: user.email,
       user_password: user.password,
@@ -48,8 +58,9 @@ feature "Create User" do
   end
   
   scenario "Unsuccessfully - Missing email" do
-    visit login_path
-    save_user({
+    visit user_path(id: user)
+    click_link I18n.t('actions.edit')
+    update_user({
       user_name: user.name,
       user_email: "",
       user_password: user.password,
@@ -59,8 +70,9 @@ feature "Create User" do
   end
   
   scenario "Unsuccessfully - Missing password" do
-    visit login_path
-    save_user({
+    visit user_path(id: user)
+    click_link I18n.t('actions.edit')
+    update_user({
       user_name: user.name,
       user_email: user.email,
       user_password: "",
@@ -70,8 +82,9 @@ feature "Create User" do
   end
   
   scenario "Unsuccessfully - Missing confirm password" do
-    visit login_path
-    save_user({
+    visit user_path(id: user)
+    click_link I18n.t('actions.edit')
+    update_user({
       user_name: user.name,
       user_email: user.email,
       user_password: user.password,
@@ -81,8 +94,9 @@ feature "Create User" do
   end
   
   scenario "Unsuccessfully - Confirm password doesn't match password" do
-    visit login_path
-    save_user({
+    visit user_path(id: user)
+    click_link I18n.t('actions.edit')
+    update_user({
       user_name: user.name,
       user_email: user.email,
       user_password: user.password,

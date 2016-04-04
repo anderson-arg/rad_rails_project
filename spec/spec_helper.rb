@@ -89,4 +89,8 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+  config.after :all do
+    Rake::Task["db:reset"].invoke
+  end
+  
 end
