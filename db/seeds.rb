@@ -4,12 +4,12 @@ user_2 = User.create!(:name => "Artur Araújo", :email => "arturaraujo.b@gmail.c
 ListCategory.create(:id => 1, :title => "ToDo", :photo => "todo.png", :is_active => 1)
 ListCategory.create(:id => 2, :title => "Financeiro", :photo => "financial.png", :is_active => 1)
 
-List.create(:id => 5, :list_category_id => 1, :user => user_2, :title => "Teste", :description => "Descrição Teste", :is_active => 1)
-List.create(:id => 6, :list_category_id => 1, :user => user_2, :title => "Teste 2", :description => "Descrição Teste 2", :is_active => 1)
-List.create(:id => 1, :list_category_id => 1, :user => user_2, :title => "Fazer nas Férias", :description => "Atividades para fazer nas férias", :is_active => 1)
-List.create(:id => 2, :list_category_id => 2, :user => user_1, :title => "Objetivos Financeiros", :description => "Objetivos para alcançar em um ano", :is_active => 1)
-List.create(:id => 3, :list_category_id => 2, :user => user_1, :title => "Passos para se tornar rico", :is_active => 1)
-List.create(:id => 4, :list_category_id => 1, :user => user_2, :title => "Estudar", :description => "Tecnologias para estudar", :is_active => 1)
+List.create(:list_category_id => 1, :user => user_2, :title => "Teste", :description => "Descrição Teste", :is_active => 1)
+List.create(:list_category_id => 1, :user => user_2, :title => "Teste 2", :description => "Descrição Teste 2", :is_active => 1)
+List.create(:list_category_id => 1, :user => user_2, :title => "Fazer nas Férias", :description => "Atividades para fazer nas férias", :is_active => 1)
+List.create(:list_category_id => 2, :user => user_1, :title => "Objetivos Financeiros", :description => "Objetivos para alcançar em um ano", :is_active => 1)
+List.create(:list_category_id => 2, :user => user_1, :title => "Passos para se tornar rico", :is_active => 1)
+List.create(:list_category_id => 1, :user => user_2, :title => "Estudar", :description => "Tecnologias para estudar", :is_active => 1)
 
 ItemType.create(:id => 1, :title => "Texto", :is_active => 1)
 ItemType.create(:id => 2, :title => "Editável", :is_active => 1)
