@@ -13,6 +13,7 @@ pt:
     back: 'Voltar'
     remove: 'Apagar'
     save: 'Salvar'
+    register: 'Cadastrar'
   menus:
     home: 'Inicial'
     about: 'Sobre'

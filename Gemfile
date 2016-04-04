@@ -37,12 +37,18 @@ gem 'activeadmin', github: 'activeadmin'
 group :development, :test do
   gem "rspec"
   gem "rspec-rails"
-  gem "autotest"
-  gem "autotest-standalone"
+  gem 'factory_girl_rails'
+  gem 'ffaker'
 end
 
 group :development do
   gem 'web-console', '~> 2.0' 
+end
+
+group :test do
+  gem 'shoulda-matchers'
+  gem 'email_spec'
+  gem 'capybara'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

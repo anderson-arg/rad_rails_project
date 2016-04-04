@@ -13,6 +13,7 @@ en:
     back: 'Back'
     remove: 'Delete'
     save: 'Salvar'
+    register: 'Register'
   menus:
     home: 'Home'
     about: 'About'
