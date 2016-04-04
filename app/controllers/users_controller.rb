@@ -52,7 +52,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    if @user != null
+    if @user
       log_out
       @user.destroy
     end

@@ -6,9 +6,9 @@ atom_feed do |feed|
     feed.entry(list) do |entry|
       entry.title list.title
       entry.content list.description
-      entry.url user_list_path(list.user, list)
+      entry.url user_list_path(list.user, list) if list.user
       entry.author do |author|
-        author.name list.user.name
+        author.name list.user.name if list.user
       end
     end
   end
